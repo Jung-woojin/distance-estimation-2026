@@ -1,29 +1,29 @@
-# Benchmark Results - Distance Estimation
+# 벤치마크 결과 - 거리 추정
 
-This folder contains benchmark results and performance comparisons for various distance/depth estimation methods.
+이 폴더에는 다양한 거리/깊이 추정 방법론의 벤치마크 결과 및 성능 비교가 포함되어 있습니다.
 
 ---
 
-## Summary of Current State-of-the-Art (2026)
+## 현재 최신 기술 개요 (2026)
 
-| Method | Type | RMSE (m) | AbsRel | δ < 1.25 | Inference Time (ms) | Platform |
+| 방법론 | 유형 | RMSE (m) | AbsRel | δ < 1.25 | 추론 시간 (ms) | 플랫폼 |
 |--------|------|----------|---------|----------|---------------------|----------|
-| Depth Anything v2 | Monocular | 0.45 | 0.082 | 0.93 | 45 | Desktop GPU |
-| MaD-Depth | Monocular | 0.42 | 0.078 | 0.94 | 65 | Desktop GPU |
-| 3DGS | Neural Rendering | - | - | - | 15 | Desktop GPU |
-| BEVFormer v2 | Driving | 0.38 | 0.071 | 0.95 | 25 | Automotive GPU |
-| PSMNet | Stereo | 0.52 | 0.095 | 0.91 | 30 | Desktop GPU |
-| GwcNet | Stereo | 0.55 | 0.102 | 0.89 | 18 | Mobile GPU |
+| Depth Anything v2 | 모노큘러 | 0.45 | 0.082 | 0.93 | 45 | 데스크톱 GPU |
+| MaD-Depth | 모노 Buckley | 0.42 | 0.078 | 0.94 | 65 | 데스크톱 GPU |
+| 3DGS | 신경 렌더링 | - | - | - | 15 | 데스크톱 GPU |
+| BEVFormer v2 | 주행 | 0.38 | 0.071 | 0.95 | 25 | 자동차 GPU |
+| PSMNet | 스테레오 | 0.52 | 0.095 | 0.91 | 30 | 데스크톱 GPU |
+| GwcNet | 스테레오 | 0.55 | 0.102 | 0.89 | 18 | 모바일 GPU |
 
 ---
 
-## Detailed Performance Comparison
+## 상세 성능 비교
 
-### Monocular Depth Estimation
+### 모노 Buckley 깊이 추정
 
-#### KITTI Dataset (Driving Scenario)
+#### KITTI 데이터셋 (주행 시나리오)
 
-| Model | δ < 1.25 | δ < 1.25² | δ < 1.25³ | AbsRel | RelErr | SqRel | RMSE | Log10 |
+| 모델 | δ < 1.25 | δ < 1.25² | δ < 1.25³ | AbsRel | RelErr | SqRel | RMSE | Log10 |
 |-------|----------|-----------|-----------|--------|--------|-------|------|-------|
 | MiDaS v3.1 | 0.891 | 0.963 | 0.988 | 0.112 | 0.468 | 2.014 | 5.386 | 0.156 |
 | Depth Anything | 0.924 | 0.975 | 0.992 | 0.089 | 0.395 | 1.654 | 4.892 | 0.132 |
@@ -31,9 +31,9 @@ This folder contains benchmark results and performance comparisons for various d
 | MaD-Depth | 0.956 | 0.987 | 0.997 | 0.068 | 0.305 | 1.218 | 4.392 | 0.112 |
 | DiTP | 0.941 | 0.979 | 0.994 | 0.082 | 0.358 | 1.487 | 4.654 | 0.125 |
 
-#### NYU Depth v2 (Indoor Scenario)
+#### NYU Depth v2 (실내 시나리오)
 
-| Model | δ < 1.25 | δ < 1.25² | δ < 1.25³ | AbsRel | RMSE |
+| 모델 | δ < 1.25 | δ < 1.25² | δ < 1.25³ | AbsRel | RMSE |
 |-------|----------|-----------|-----------|--------|------|
 | MiDaS v3.1 | 0.862 | 0.947 | 0.979 | 0.138 | 0.462 |
 | Depth Anything | 0.901 | 0.963 | 0.987 | 0.112 | 0.412 |
@@ -43,22 +43,22 @@ This folder contains benchmark results and performance comparisons for various d
 
 ---
 
-### Stereo Depth Estimation
+### 스테레오 깊이 추정
 
-#### Middlebury Dataset
+#### Middlebury 데이터셋
 
-| Model | ALL | Indoor | Outdoor | All |
-|-------|-----|--------|---------|-----|
+| 모델 | ALL | 실내 | 실외 | 모두 |
+|-------|-----|------|------|------|
 | GwcNet | 1.21 | 1.08 | 1.34 | - |
 | PSMNet | 1.15 | 1.02 | 1.28 | - |
 | CFMNet | 1.08 | 0.95 | 1.21 | - |
 | GA-Net | 1.12 | 1.00 | 1.24 | - |
 | LiteStereo | 1.32 | 1.18 | 1.46 | 15ms |
 
-#### DTU Dataset (High Accuracy)
+#### DTU 데이터셋 (고정확도)
 
-| Model | D1 All | D1 Indoor | D1 Outdoor | FLOPs |
-|-------|--------|-----------|------------|-------|
+| 모델 | D1 모두 | D1 실내 | D1 실외 | FLOPs |
+|-------|--------|--------|---------|-----|
 | PSMNet | 1.82 | 1.65 | 2.12 | 215G |
 | GwcNet | 1.89 | 1.71 | 2.23 | 178G |
 | CFMNet | 1.75 | 1.58 | 2.05 | 195G |
@@ -66,12 +66,12 @@ This folder contains benchmark results and performance comparisons for various d
 
 ---
 
-### Neural Radiance Fields
+### 신경 방사장 (NeRF)
 
-#### Rendering Quality & Speed
+#### 렌더링 품질 및 속도
 
-| Model | PSNR (dB) | SSIM | LPIPS | Render FPS |
-|-------|----------|------|-------|------------|
+| 모델 | PSNR (dB) | SSIM | LPIPS | 렌더링 FPS |
+|-------|----------|------|------|------------|
 | NeRF | 28.5 | 0.89 | 0.12 | 0.2 |
 | Instant-NGP | 28.1 | 0.88 | 0.13 | 155 |
 | Plenoxels | 27.8 | 0.87 | 0.14 | 62 |
@@ -80,21 +80,21 @@ This folder contains benchmark results and performance comparisons for various d
 
 ---
 
-### Autonomous Driving (BEV Methods)
+### 자율주행 (BEV 방법론)
 
-#### nuScenes Dataset
+#### nuScenes 데이터셋
 
-| Model | NDS | mAP | Rate | LDD |
-|-------|-----|-----|------|-----|
+| 모델 | NDS | mAP | Rate | LDD |
+|-------|-----|-----|------|---|
 | BEVFormer | 58.2 | 48.5 | 56.8 | 72.1 |
 | BEVFormer v2 | 61.4 | 52.3 | 59.2 | 75.8 |
 | BEVDepth | 59.8 | 50.1 | 57.5 | 73.9 |
 | UniAD | 60.5 | 51.2 | 58.4 | 74.5 |
 
-#### KITTI 3D Detection
+#### KITTI 3D 감지
 
-| Model | Car HPC | Pedestrian HPC | Cyclist HPC |
-|-------|---------|----------------|-------------|
+| 모델 | 차량 HPC | 보행자 HPC | 자전거감 HPC |
+|-------|---------|------------|------|
 | BEVFormer | 89.2 | 84.7 | 81.3 |
 | BEVFormer v2 | 92.5 | 88.1 | 85.4 |
 | PointPillars | 85.1 | 79.4 | 75.8 |
@@ -102,20 +102,20 @@ This folder contains benchmark results and performance comparisons for various d
 
 ---
 
-## Robustness Evaluation
+## 내성 평가
 
-### Weather Conditions Performance
+### 기상 조건별 성능
 
-| Model | Clear | Rain | Fog | Night |
-|-------|-------|------|-----|-------|
+| 모델 | 맑음 | 비 | 안개 | 야간 |
+|-------|------|----|----|----|
 | MiDaS v3.1 | 92.1 | 78.5 | 65.2 | 62.3 |
 | Depth Anything v2 | 94.8 | 85.2 | 72.4 | 68.9 |
 | BEVFormer v2 | 95.2 | 88.1 | 75.8 | 71.2 |
 
-### Domain Shift Robustness
+### 도메인 전이 내성
 
-| Model | KITTI→CityScapes | NYU→ScanNet | Real→Synthetic |
-|-------|------------------|-------------|----------------|
+| 모델 | KITTI→CityScapes | NYU→ScanNet | 실사→가상 |
+|-------|------------------|------|----------|
 | MiDaS v3.1 | -12.3 | -8.5 | -5.2 |
 | Depth Anything | -6.8 | -4.2 | -2.1 |
 | Depth Anything v2 | -4.2 | -2.8 | -1.5 |
@@ -123,67 +123,67 @@ This folder contains benchmark results and performance comparisons for various d
 
 ---
 
-## Efficiency Comparison
+## 효율성 비교
 
-### Computational Complexity
+### 계산 복잡도
 
-| Model | Parameters | FLOPs | Memory (MB) | Latency (ms) |
-|-------|------------|-------|-------------|--------------|
+| 모델 | 파라미터 | FLOPs | 메모리 (MB) | 지연 (ms) |
+|-------|-------|-------|----------|-----|
 | MiDaS v3.1 | 46M | 180G | 185 | 45 |
 | Depth Anything | 98M | 320G | 245 | 65 |
 | DiTP | 125M | 410G | 285 | 82 |
 | PSMNet | 44M | 215G | 195 | 30 |
 | GwcNet | 32M | 178G | 165 | 18 |
 
-### Mobile Deployment
+### 모바일 배포
 
-| Model | Mobile FPS (iPhone) | Mobile FPS (Android) | Model Size (MB) |
-|-------|---------------------|----------------------|-----------------|
-| MiDaS (Quantized) | 28 | 24 | 12 |
+| 모델 | 모바일 FPS (iPhone) | 모바일 FPS (Android) | 모델 크기 (MB) |
+|-------|------------|------------|------|
+| MiDaS (양자화) | 28 | 24 | 12 |
 | LiteStereo | 45 | 38 | 8 |
 | Depth Anything (TFLite) | 22 | 19 | 25 |
 
 ---
 
-## Emerging Metrics (2026)
+## 신생 지표 (2026)
 
-### Temporal Consistency
+### 시간적 일관성
 
-| Model | Temporal Stability | Frame-to-frame Variation |
-|-------|-------------------|--------------------------|
+| 모델 | 시간적 안정성 | 프레임 간 변동 |
+|-------|----------|------------|
 | Depth Anything | 0.87 | 0.15 |
 | Depth Anything v2 | 0.94 | 0.08 |
 | Video NeRF | 0.92 | 0.10 |
 
-### Uncertainty Estimation Quality
+### 불확실성 추정 품질
 
-| Model | Calibration Error | Uncertainty Correlation |
-|-------|------------------|------------------------|
+| 모델 | 보정 오차 | 불확실성 상관관계 |
+|-------|------|---------------|
 | MaD-Depth | 0.032 | 0.78 |
 | PSMNet+Unc | 0.045 | 0.71 |
 | Depth Anything | 0.052 | 0.68 |
 
 ---
 
-## Future Directions
+## 미래 방향
 
-### Current Limitations
+### 현재 한계점
 
-1. **Extreme Weather**: Performance degrades significantly in fog, heavy rain, snow
-2. **Long Range**: Accuracy drops beyond 100m
-3. **Dynamic Scenes**: Moving objects cause artifacts
-4. **Computational Cost**: High-end GPUs still needed for real-time quality
-5. **Domain Adaptation**: Still requires some fine-tuning for new environments
+1. **극한 기상**: 안개, 강우, 눈에서 성능이 크게 저하
+2. **원거리**: 100m 이상 정확도 저하
+3. **동적 장면**: 움직이는 객체로 인한 아티팩트
+4. **계산 비용**: 실시간 품질을 위한 고사양 GPU 필요
+5. **도메인 적응**: 새 환경에서 여전히 일부 세부 조정 필요
 
-### Target Improvements (2026+)
+### 목표 개선사항 (2026+)
 
-- **Zero-shot generalization** across all domains
-- **Sub-centimeter accuracy** at long ranges
-- **Edge device deployment** with <10ms latency
-- **Robust to all weather conditions** with <5% performance drop
-- **True unsupervised learning** with no domain gap
+- **모든 도메인에서 Zero-shot 일반화**
+- **원거리에서 하수cm 정확도**
+- **<10ms 지연의 엣지 디바이스 배포**
+- **모든 기상 조건에서 <5% 성능 저하로 내성**
+- **도메인 격차 없는 진정한 비지도 학습**
 
 ---
 
-*All benchmarks measured on NVIDIA A100 GPU unless specified otherwise.*
-*Last updated: 2026-04-10*
+*모든 벤치마크는 별도 명시 시 NVIDIA A100 GPU 에서 측정.*
+*최종 업데이트: 2026-04-10*

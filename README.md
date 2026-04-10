@@ -1,334 +1,334 @@
 # Distance Estimation Research Repository
 
-## 📊 Current Trends in Computer Vision Distance/Depth Estimation (2024-2026)
+## 📊 컴퓨터 비전 거리/깊이 추정 연구 동향 (2024-2026)
 
-_Last Updated: 2026-04-10_
-
----
-
-## 1. MONOCULAR DEPTH ESTIMATION
-
-### Current State
-Monocular depth estimation has evolved from CNN-based methods to Transformer-based architectures with foundation model integration.
-
-### Key Approaches
-
-#### A. Transformer-based Methods
-- **Depth Transformer (DiTP)**: Vision Transformer architecture for single-camera depth estimation
-- **MAE-based methods**: Masked Autoencoders for self-supervised depth learning
-- **Swin Transformer variants**: Hierarchical feature extraction for multi-scale depth
-
-#### B. Self-Supervised Learning
-- **Synthetic-to-real transfer**: Training on synthetic data, deploying on real-world
-- **Unsupervised domain adaptation**: Adapting to target domain without labels
-- **Contrastive learning**: Learning depth representations through contrastive objectives
-
-#### C. Diffusion-Based Methods
-- **MaD-Depth**: Multi-scale aggregation with diffusion priors
-- **Diffusion for depth refinement**: Using generative models for post-processing
-
-### Recent Breakthroughs (2024-2026)
-1. **Depth Anything** - Generalized depth estimation without task-specific fine-tuning
-2. **Zero-shot transfer** capabilities across diverse environments
-3. **Video-based temporal consistency** maintaining depth consistency across frames
-4. **Real-time inference** optimized for edge devices
-
-### Datasets & Benchmarks
-- **KITTI**: Autonomous driving scenarios
-- **NYU Depth v2**: Indoor environments
-- **ScanNet**: Large-scale indoor 3D scenes
-- **Make3D**: Single-image depth datasets
+_최종 업데이트: 2026-04-10_
 
 ---
 
-## 2. STEREO DEPTH ESTIMATION
+## 1. 모노큘러 깊이 추정 (단일 카메라 기반)
 
-### Current State
-Deep learning-based stereo matching has largely replaced traditional methods.
+### 현황
+모노큘러 깊이 추정은 CNN 기반 방법론에서 Transformer 기반 아키텍처와 파운데이션 모델 통합으로 진화했습니다.
 
-### Key Approaches
+### 주요 접근 방식
 
-#### A. Cost Volume-based Methods
-- **PSMNet**: Pyramid Stereo Matching Network with multi-level feature aggregation
-- **GwcNet**: Group-wise correlation for efficient cost volume computation
-- **CFMNet**: Contextual Flow Matching for improved matching accuracy
+#### A. Transformer 기반 방법론
+- **Depth Transformer (DiTP)**: 단일 카메라 깊이 추정을 위한 Vision Transformer 아키텍처
+- **MAE 기반 방법론**: 자기지도학습을 위한 Masked Autoencoders
+- **Swin Transformer 변형**: 다중 스케일 깊이 추적을 위한 계층적 특징 추출
 
-#### B. Attention-based Methods
-- **Self-attention in stereo matching**: Capturing long-range dependencies
-- **Cross-attention mechanisms**: Enhancing feature correlation between stereo pairs
+#### B. 자기지도학습 (Self-Supervised Learning)
+- **가상-현실 전이**: 가상 데이터 학습, 실제 환경 배포
+- **비지도 도메인 적응**: 레이블 없이 타겟 도메인에 적응
+- **대비 학습**: Contrastive objectives 를 통한 깊이 표현 학습
 
-#### C. Recent Advances
-- **Adversarial training** for handling occluded and textureless regions
-- **Uncertainty estimation** integrated into stereo matching pipelines
-- **Night/poor-weather robustness** improvements
+#### C. Diffusion 기반 방법론
+- **MaD-Depth**: Diffusion 사전 (priors) 을 활용한 다중 스케일 집계
+- **깊이 정제를 위한 Diffusion**: 생성 모델을 이용한 후처리
 
-### Benchmarks
-- **DTU**: High-accuracy stereo matching benchmark
-- **Sintel**: Real-world stereo matching with challenging conditions
-- **Middlebury**: Classic stereo benchmark
+### 최근 돌파구 (2024-2026)
+1. **Depth Anything** - 작업별 세부 조정 없이 일반화된 깊이 추정
+2. **영역 간 Zero-shot 전이** - 다양한 환경에서 작동
+3. **비디오 기반 시간적 일관성** - 프레임 간 깊이 일관성 유지
+4. **엣지 디바이스 최적화 실시간 추론**
 
----
-
-## 3. LIDAR-BASED DISTANCE ESTIMATION
-
-### Current State
-LiDAR remains the gold standard for accurate distance measurement in autonomous driving.
-
-### Key Approaches
-
-#### A. Point Cloud Processing
-- **PointNet++**: Direct point cloud processing with deep learning
-- **Voxel-based networks**: 3D CNN-based approaches
-- **Sparse convolutions**: Efficient processing of sparse point clouds
-
-#### B. Multi-Sensor Fusion
-- **LiDAR + Camera fusion**: Combining accurate range with semantic information
-- **BEV (Bird's Eye View) representation**: Transforming to 2D top-down view
-- **Occupancy networks**: 3D space understanding and prediction
-
-#### C. NeRF Integration
-- **Neural implicit representation**: Continuous 3D scene representation
-- **NeRF-based depth extraction**: Using radiance fields for distance estimation
-- **3D Gaussian Splatting**: Real-time 3D reconstruction and rendering
-
-### Applications
-- Autonomous vehicle perception
-- Robot navigation and manipulation
-- SLAM (Simultaneous Localization and Mapping)
+### 데이터셋 및 벤치마크
+- **KITTI**: 자율주행 시나리오
+- **NYU Depth v2**: 실내 환경
+- **ScanNet**: 대규모 실내 3D 장면
+- **Make3D**: 단일 이미지 깊이 데이터셋
 
 ---
 
-## 4. NEURAL RADIANCE FIELDS (NeRF)
+## 2. 스테레오 깊이 추정 (양안 카메라 기반)
 
-### Current State
-NeRF and its variants have revolutionized 3D scene representation and novel view synthesis.
+### 현황
+딥러닝 기반 스테레오 매칭이 전통적 방법들을 대체했습니다.
 
-### Key Approaches
+### 주요 접근 방식
 
-#### A. Traditional NeRF
-- **NeRF (2020)**: Neural Radiance Fields for novel view synthesis
-- **NeuS**: Neural implicit surface reconstruction
-- **VolSDF**: Volumetric signed distance fields
+#### A. Cost Volume 기반 방법론
+- **PSMNet**: Multi-level 특징 집약을 위한 피라미드 스테레오 매칭 네트워크
+- **GwcNet**: 효율적 cost volume 계산을 위한 그룹 상관관계
+- **CFMNet**: 향상된 매칭 정확도를 위한 Contextual Flow Matching
 
-#### B. Real-time Variants
-- **Instant-NGP**: Instant neural graphics primitives
-- **Plenoxels**: Radiance field with voxels and multi-resolution hashing
-- **3D Gaussian Splatting**: Rasterization-based real-time rendering
+#### B. 어텐션 기반 방법론
+- **스테레오 매칭에서의 Self-attention**: 장기 의존성 포착
+- **Cross-attention 메커니즘**: 스테레오 쌍 간 특징 상관관계 향상
 
-#### C. Video and Dynamic Scenes
-- **Video NeRF**: Temporal consistency in dynamic scenes
-- **Dynamic NeRF**: Handling moving objects and deformations
-- **Day-night robustness**: Adaptation to lighting variations
+#### C. 최근 발전
+- **불규칙 영역 처리를 위한 적대적 학습**
+- **스테레오 매칭 파이프라인 통합된 불확실성 추정**
+- **야간/악천후 내성 개선**
 
-### Applications
-- 3D reconstruction from sparse images
-- Novel view synthesis
-- AR/VR content creation
-- Digital twins
+### 벤치마크
+- **DTU**: 고정확도 스테레오 매칭 벤치마크
+- **Sintel**: 치명적인 조건의 실제 세계 스테레오 매칭
+- **Middlebury**: 클래식 스테레오 벤치마크
 
 ---
 
-## 5. FOUNDATION MODELS & VISION-LANGUAGE INTEGRATION
+## 3. LiDAR 기반 거리 추정
 
-### Current State
-Large-scale pre-trained models are enabling zero-shot and few-shot depth estimation.
+### 현황
+LiDAR 는 자율주행에서 정확한 거리 측정을 위한 골드 스탠다드로 남아있습니다.
 
-### Key Approaches
+### 주요 접근 방식
 
-#### A. CLIP-based Methods
-- **CLIP-Depth**: Using image-text pairs for training
-- **Open-vocabulary depth estimation**: Generalizing to unseen classes
-- **Semantic-aware depth**: Integrating object semantics
+#### A. 포인트 클라우드 처리
+- **PointNet++**: 딥러닝을 통한 직접 포인트 클라우드 처리
+- **Voxel 기반 네트워크**: 3D CNN 기반 접근법
+- **희소 컨볼루션**: 희소 포인트 클라우드의 효율적 처리
 
-#### B. DINO-based Methods
-- **DINOv2**: Self-supervised visual representations
-- **DINO for depth**: Leveraging pretrained vision encoders
-- **Vision-Language-Depth**: Multimodal fusion approaches
+#### B. 멀티 센서 퓨전
+- **LiDAR + 카메라 퓨전**: 정확한 거리와 의미 정보 결합
+- **BEV (Bird's Eye View) 표현**: 2D 상향 뷰로 변환
+- **Occupancy 네트워크**: 3D 공간 이해 및 예측
 
-#### C. Recent Advances
-- **Zero-shot transfer** to unseen domains and conditions
-- **Multimodal fusion**: Text + Image + Depth integration
-- **Grounding DINO**: Open-vocabulary detection combined with depth estimation
+#### C. NeRF 통합
+- **Neural implicit representation**: 연속 3D 장면 표현
+- **NeRF 기반 깊이 추출**: 거리 추정을 위한 radiance fields 사용
+- **3D Gaussian Splatting**: 실시간 3D 복원 및 렌더링
 
-### Datasets
-- **LAION-5B**: Large-scale image-text datasets
+### 응용 분야
+- 자율주행 차량 지각
+- 로봇 탐색 및 조작
+- SLAM (동시적 위치 추정 및 매핑)
+
+---
+
+## 4. 신경 방사장 (NeRF)
+
+### 현황
+NeRF 와 그 변형들은 3D 장면 표현과 신조형 렌더링을 혁신했습니다.
+
+### 주요 접근 방식
+
+#### A. 전통적 NeRF
+- **NeRF (2020)**: 신조형 렌더링을 위한 신경 방사장
+- **NeuS**: 신경 implicit 표면 복원
+- **VolSDF**: 볼륨형 부호 거리장
+
+#### B. 실시간 변형
+- **Instant-NGP**:instant 신경 그래픽 원시 객체
+- **Plenoxels**: 볼록체와 다중 해상도 해싱의 radiance field
+- **3D Gaussian Splatting**: 래스터화 기반 실시간 렌더링
+
+#### C. 비디오 및 동적 장면
+- **Video NeRF**: 동적 장면의 시간적 일관성
+- **Dynamic NeRF**: 움직이는 객체와 변형 처리
+- **야간-주간 내성**: 조명 변화에 대한 적응
+
+### 응용 분야
+- 희박 이미지로부터의 3D 복원
+- 신조형 렌더링
+- AR/VR 콘텐츠 제작
+- 디지털 트윈
+
+---
+
+## 5. 파운데이션 모델 & 비전-언어 통합
+
+### 현황
+대규모 사전 학습 모델들은 zero-shot 및 few-shot 깊이 추정을 가능하게 합니다.
+
+### 주요 접근 방식
+
+#### A. CLIP 기반 방법론
+- **CLIP-Depth**: 이미지-텍스트 페어로 학습
+- **오픈 어휘 깊이 추정**: 보이지 않는 클래스로 일반화
+- **의미 인식 깊이**: 객체 의미 통합
+
+#### B. DINO 기반 방법론
+- **DINOv2**: 자기지도학습 시각 표현
+- **깊이를 위한 DINO**: 사전 학습 시각 인코더 활용
+- **비전-언어-깊이**: 멀티모달 퓨전 접근법
+
+#### C. 최근 발전
+- **보이지 않는 도메인 및 조건으로의 Zero-shot 전이**
+- **멀티모달 퓨전**: 텍스트 + 이미지 + 깊이 통합
+- **Grounding DINO**: 오픈 어휘 감지와 깊이 추정 결합
+
+### 데이터셋
+- **LAION-5B**: 대규모 이미지-텍스트 데이터셋
 - **COYO**: Common Objects in YOLO
-- **WebImageCaps**: Web-scraped image captions
+- **WebImageCaps**: 웹 스크랩된 이미지 캡션
 
 ---
 
-## 6. AUTONOMOUS DRIVING APPLICATIONS
+## 6. 자율주행 응용 분야
 
-### Current State
-Distance estimation is critical for autonomous vehicle perception and navigation.
+### 현황
+거리 추정은 자율주행 차량 지각 및 항법에 중요합니다.
 
-### Key Approaches
+### 주요 접근 방식
 
-#### A. BEV (Bird's Eye View) Methods
-- **BEVFormer**: Spatio-temporal BEV representation
-- **BEVDepth**: Depth-aware BEV transformation
-- **UniAD**: Unified autonomous driving framework
+#### A. BEV (Bird's Eye View) 방법론
+- **BEVFormer**: 시공간 BEV 표현
+- **BEVDepth**: 깊이 인식 BEV 변환
+- **UniAD**: 통합 자율주행 프레임워크
 
-#### B. Multi-Camera Fusion
-- **Surround-view depth estimation**: 360-degree perception
-- **Camera fusion networks**: Combining multiple viewpoints
-- **Temporal fusion**: Using video sequences for robustness
+#### B. 멀티 카메라 퓨전
+- **서라운드뷰 깊이 추정**: 360 도 지각
+- **카메라 퓨전 네트워크**: 다중 관점 결합
+- **시간적 퓨전**: 견고성을 위한 비디오 시퀀스 사용
 
-#### C. Object Distance Estimation
-- **Vehicle detection + depth**: Distance to other vehicles
-- **Pedestrian tracking + depth**: Distance to pedestrians
-- **Cyclist detection**: Specialized handling for cyclists
-- **Semantic segmentation + depth**: Class-specific distance estimation
+#### C. 객체 거리 추정
+- **차량 감지 + 깊이**: 다른 차량까지의 거리
+- **보행자 추적 + 깊이**: 보행자까지의 거리
+- **자전거감 감지**: 자전거를 위한 특수 처리
+- **의미 분할 + 깊이**: 클래스별 거리 추정
 
-### Datasets
-- **KITTI**: Driving scenes with depth labels
-- **Waymo Open Dataset**: Large-scale LiDAR + Camera dataset
-- **nuScenes**: Multi-modal autonomous driving dataset
-- **Argoverse**: Motion forecasting with 3D data
-
----
-
-## 7. EMERGING TRENDS (2024-2026)
-
-### A. Temporal Information Utilization
-- **Video-based depth estimation**: Using frame sequences
-- **Optical flow integration**: Motion cues for depth refinement
-- **Temporal consistency constraints**: Maintaining stable depth over time
-
-### B. Multi-modal Fusion
-- **RGB-D fusion**: Combining color and depth
-- **Multi-sensor fusion**: IMU, LiDAR, Radar integration
-- **Audio-visual depth estimation**: Sound-based distance cues
-
-### C. Efficiency & Real-time Processing
-- **Lightweight networks**: Mobile and edge deployment
-- **Knowledge distillation**: Compressing large models
-- **Quantization-aware training**: Reducing computational cost
-
-### D. Robustness Improvements
-- **Extreme weather handling**: Rain, fog, snow robustness
-- **Low-light operation**: Nighttime depth estimation
-- **Adversarial robustness**: Defense against attacks
-
-### E. Semantic Integration
-- **Object-aware depth**: Class-specific distance estimation
-- **Semantic segmentation + depth**: Joint learning
-- **Instance-level depth**: Per-object distance estimation
+### 데이터셋
+- **KITTI**: 깊이 레이블이 있는 주행 장면
+- **Waymo Open Dataset**: 대규모 LiDAR + 카메라 데이터셋
+- **nuScenes**: 멀티모달 자율주행 데이터셋
+- **Argoverse**: 3D 데이터로 모션 예측
 
 ---
 
-## 8. KEY EVALUATION METRICS
+## 7. 최신 트렌드 (2024-2026)
 
-### Standard Metrics
-1. **RMSE** (Root Mean Square Error): Overall accuracy
-2. **AbsRel** (Absolute Relative Error): Relative error measurement
-3. **δ < 1.25**: Percentage of pixels within threshold
-4. **FLOPs**: Computational complexity
-5. **Inference Time**: Real-time performance
+### A. 시간적 정보 활용
+- **비디오 기반 깊이 추정**: 프레임 시퀀스 사용
+- **광류 통합**: 깊이 정제를 위한 모션 cue
+- **시간적 일관성 제약**: 안정적인 깊이 유지
 
-### Application-Specific Metrics
-- **Driving**: Distance to obstacles, lane detection accuracy
-- **Robotics**: Manipulation precision, collision avoidance
-- **AR/VR**: Rendering quality, latency
+### B. 멀티모달 퓨전
+- **RGB-D 퓨전**: 색상과 깊이 결합
+- **멀티 센서 퓨전**: IMU, LiDAR, 레이더 통합
+- **오디오-비주얼 깊이 추정**: 소리 기반 거리 cue
+
+### C. 효율성 및 실시간 처리
+- **경량 네트워크**: 모바일 및 엣지 배포
+- **지식 증류**: 대형 모델 압축
+- **양자화 인지 학습**: 계산 비용 감소
+
+### D. 내성 개선
+- **극한 기상 처리**: 비, 안개, 눈 내성
+- **저조도 작동**: 야간 깊이 추정
+- **적대적 내성**: 공격에 대한 방어
+
+### E. 의미 통합
+- **객체 인식 깊이**: 클래스별 거리 추정
+- **의미 분할 + 깊이**: 공동 학습
+- **인스턴스 레벨 깊이**: 객체별 거리 추정
 
 ---
 
-## 9. FUTURE DIRECTIONS
+## 8. 주요 평가 지표
 
-### 2026+ Research Priorities
+### 표준 지표
+1. **RMSE** (Root Mean Square Error): 전체 정확도
+2. **AbsRel** (Absolute Relative Error): 상대 오차 측정
+3. **δ < 1.25**: 임계값 내 픽셀 비율
+4. **FLOPs**: 계산 복잡도
+5. **추론 시간**: 실시간 성능
 
-1. **Multimodal Foundation Models**
-   - Integration of vision, language, and depth
-   - Zero-shot generalization across tasks
+### 도메인별 지표
+- **주행**: 장애물까지 거리, 차선 감지 정확도
+- **로봇공학**: 조작 정밀도, 충돌 회피
+- **AR/VR**: 렌더링 품질, 지연 시간
 
-2. **Neural 3D Representation**
-   - Unified 3D scene understanding
-   - Efficient storage and rendering
+---
+
+## 9. 미래 방향
+
+### 2026+ 연구 우선순위
+
+1. **멀티모달 파운데이션 모델**
+   - 비전, 언어, 깊이의 통합
+   - 작업 간 Zero-shot 일반화
+
+2. **Neural 3D 표현**
+   - 통합 3D 장면 이해
+   - 효율적 저장 및 렌더링
 
 3. **Embodied AI**
-   - Real-time depth for robot interaction
-   - Sim-to-real transfer
+   - 로봇 상호작용을 위한 실시간 깊이
+   - Sim-to-real 전이
 
-4. **AR/VR Applications**
-   - High-precision depth sensing
-   - Real-time novel view synthesis
+4. **AR/VR 응용**
+   - 고정밀 깊이 센싱
+   - 실시간 신조형 렌더링
 
-5. **Robotic Manipulation**
-   - Fine-grained distance estimation
-   - Hand-eye coordination
+5. **로봇 조작**
+   - 세밀한 거리 추정
+   - 눈-손 조정
 
-### Technical Challenges
+### 기술적 과제
 
-1. **Extreme Conditions**
-   - Night, fog, rain, snow robustness
-   - Glare and shadow handling
+1. **극한 환경**
+   - 야간, 안개, 비, 눈 내성
+   - 눈부기 및 그림자 처리
 
-2. **Dynamic Scenes**
-   - Moving objects and people
-   - Temporal consistency
+2. **동적 장면**
+   - 움직이는 객체와 사람들
+   - 시간적 일관성
 
-3. **Long-range Estimation**
-   - Accurate distance beyond 100m
-   - Horizon detection
+3. **원거리 추정**
+   - 100m 이상 정확한 거리
+   - 지평선 감지
 
-4. **Computational Efficiency**
-   - Edge device deployment
-   - Power-constrained operation
-
----
-
-## 10. REFERENCE PAPERS
-
-### Foundational Papers
-1. **NeRF** (Mildenhall et al., 2020) - Neural Radiance Fields
-2. **PointNet** (Qi et al., 2017) - Deep learning on point sets
-3. **MonoDepth** (Godard et al., 2017) - Unsupervised monocular depth
-
-### 2024-2026 Key Papers
-1. **Depth Anything** (Zhang et al., 2025) - Generalized depth estimation
-2. **3D Gaussian Splatting** (Kerbl et al., 2024) - Real-time 3D reconstruction
-3. **BEVFormer v2** (Li et al., 2025) - Enhanced BEV representation
-4. **UniAD** (Wang et al., 2024) - Unified autonomous driving
-5. **MaD-Depth** (2025) - Multi-scale aggregation with diffusion
-
-### Recent Works (2026)
-1. **Video NeRF** - Dynamic scene reconstruction
-2. **Semantic NeRF** - Object-aware neural radiance fields
-3. **Foundation Depth Models** - Large-scale pretrained depth estimators
+4. **계산 효율성**
+   - 엣지 디바이스 배포
+   - 전력 제약 작동
 
 ---
 
-## 11. OPEN RESEARCH QUESTIONS
+## 10. 참고 문헌
 
-1. How to achieve robust depth estimation in extreme weather conditions?
-2. Can we develop truly universal depth estimators without domain-specific fine-tuning?
-3. How to integrate semantic understanding with geometric depth estimation?
-4. What are the optimal fusion strategies for multi-modal sensor inputs?
-5. How to achieve sub-centimeter accuracy at long ranges (>100m)?
-6. What are the computational limits for real-time 3D scene understanding?
+### 기초 논저
+1. **NeRF** (Mildenhall et al., 2020) - 신경 방사장
+2. **PointNet** (Qi et al., 2017) - 포인트셋 딥러닝
+3. **MonoDepth** (Godard et al., 2017) - 비지도 모노큘러 깊이
 
----
+### 2024-2026 핵심 논저
+1. **Depth Anything** (Zhang et al., 2025) - 일반화된 깊이 추정
+2. **3D Gaussian Splatting** (Kerbl et al., 2024) - 실시간 3D 복원
+3. **BEVFormer v2** (Li et al., 2025) - 향상된 BEV 표현
+4. **UniAD** (Wang et al., 2024) - 통합 자율주행
+5. **MaD-Depth** (2025) - Diffusion 기반 다중 스케일 집계
 
-## 12. RESOURCES & TOOLS
-
-### Open Source Implementations
-- **MMSession**: Multi-modal depth estimation toolkit
-- **Depth-Anything**: Official implementation
-- **3D-Gaussian-Splatting**: Real-time rendering
-- **Open3D**: 3D data processing library
-
-### Frameworks
-- **PyTorch**: Deep learning framework
-- **TensorFlow**: Alternative deep learning framework
-- **ONNX**: Model interoperability
-
-### Datasets
-- KITTI, NYU Depth v2, ScanNet, Waymo, nuScenes, DTU
+### 최근 작업 (2026)
+1. **Video NeRF** - 동적 장면 복원
+2. **Semantic NeRF** - 객체 인식 신경 방사장
+3. **Foundation Depth Models** - 대규모 사전 학습 깊이 추정기
 
 ---
 
-*This repository is continuously updated with the latest research trends in distance/depth estimation.*
-*Contributions and updates are welcome.*
+## 11. 열린 연구 질문
 
-*Created: 2026-04-10*
-*Last Updated: 2026-04-10*
+1. 극한 기상 조건에서 견고한 깊이 추정은 어떻게 달성할 수 있는가?
+2. 도메인별 세부 조정 없이 진정한 보편 깊이 추정기를 개발할 수 있는가?
+3. 기하학적 깊이 추정에 의미 이해를 어떻게 통합하는가?
+4. 멀티모달 센서 입력을 위한 최적 퓨전 전략은 무엇인가?
+5. 100m 이상 원거리에서 하수cm 정확도는 어떻게 달성하는가?
+6. 실시간 3D 장면 이해의 계산 한계는 무엇인가?
+
+---
+
+## 12. 리소스 & 도구
+
+### 오픈 소스 구현
+- **MMSession**: 멀티모달 깊이 추정 툴킷
+- **Depth-Anything**: 공식 구현
+- **3D-Gaussian-Splatting**: 실시간 렌더링
+- **Open3D**: 3D 데이터 처리 라이브러리
+
+### 프레임워크
+- **PyTorch**: 딥러닝 프레임워크
+- **TensorFlow**: 대체 딥러닝 프레임워크
+- **ONNX**: 모델 상호운용성
+
+### 데이터셋
+KITTI, NYU Depth v2, ScanNet, Waymo, nuScenes, DTU
+
+---
+
+*이 저장소는 거리/깊이 추정의 최신 연구 동향으로 지속적으로 업데이트됩니다.*
+*기여 및 업데이트를 환영합니다.*
+
+*생성: 2026-04-10*
+*최종 업데이트: 2026-04-10*
